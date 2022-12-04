@@ -1,0 +1,12 @@
+apiVersion: 1
+
+datasources:
+  - name: influxdb
+    type: influxdb
+    access: proxy
+    isDefault: true
+    database: iperftest
+    user: admin
+    url: http://influxdb:8086
+    secureJsonData:
+      password: password

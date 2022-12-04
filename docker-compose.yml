@@ -1,0 +1,42 @@
+version: '3'
+
+services:
+  iperftest:
+    build: app
+    restart: always
+    environment:
+      - DB_HOST=http://localhost:8086
+      - DB_NAME=iperftest
+      - DB_USERNAME=admin
+      - DB_PASSWORD=password
+    volumes:
+      - ./app/scripts/:/opt/monitor/:ro
+    depends_on:
+      - influxdb
+    network_mode: host
+
+  grafana:
+    image: grafana/grafana:latest
+    restart: always
+    ports:
+      - 3004:3000
+    volumes:
+      - grafana:/var/lib/grafana
+      - ./grafana/dashboards/:/etc/grafana/provisioning/dashboards/
+      - ./grafana/datasources/:/etc/grafana/provisioning/datasources/
+
+  influxdb:
+    image: influxdb:1.8.3
+    restart: always
+    volumes:
+      - influxdb:/var/lib/influxdb
+    ports:
+      - 8086:8086
+    environment:
+      - INFLUXDB_ADMIN_USER="admin"
+      - INFLUXDB_ADMIN_PASSWORD="password"
+      - INFLUXDB_DB="iperftest"
+
+volumes:
+  grafana:
+  influxdb:
