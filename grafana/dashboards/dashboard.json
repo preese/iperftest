@@ -40,7 +40,6 @@
           },
           "decimals": 2,
           "mappings": [],
-          "max": 300,
           "thresholds": {
             "mode": "absolute",
             "steps": [
@@ -174,7 +173,6 @@
           },
           "decimals": 2,
           "mappings": [],
-          "max": 30,
           "thresholds": {
             "mode": "absolute",
             "steps": [
@@ -1330,8 +1328,7 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "green",
-                "value": null
+                "color": "green"
               },
               {
                 "color": "red",
@@ -1518,8 +1515,7 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "green",
-                "value": null
+                "color": "green"
               },
               {
                 "color": "red",
@@ -1648,6 +1644,6 @@
   "timezone": "",
   "title": "Internet Monitor",
   "uid": "69N8Ojanz",
-  "version": 1,
+  "version": 9,
   "weekStart": ""
 }
